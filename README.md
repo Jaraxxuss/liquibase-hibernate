@@ -27,9 +27,9 @@ Download [the latest released Liquibase extension](https://github.com/liquibase/
 
 This extension is available in the maven repository under group __org.liquibase.ext__. To support the distinct requirements of Hibernate 7 across different Liquibase engines, use the appropriate artifact for your stack:
 
-* __liquibase-hibernate7__ Hibernate 7.x support (Targets **Liquibase 5.x**, Java 17+)
-* __liquibase-hibernate7-oss__ Hibernate 7.x support (Targets **Liquibase 4.x**, Java 17+)
-* __liquibase-hibernate6__ Hibernate 6.x support (Targets **Liquibase 4.x**, Java 11+)
+* __liquibase-hibernate7__: Use this for **Hibernate 7** when running on **Liquibase 5.x**.
+* __liquibase-hibernate7-oss__: Use this for **Hibernate 7** when running on **Liquibase 4.x**.
+* __liquibase-hibernate6__: Use this for **Hibernate 6** environments.
 
 Specify the Liquibase extension in the `<dependency>` section of your POM file by adding the `org.liquibase.ext` dependency for the Liquibase plugin. 
  
