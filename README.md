@@ -8,10 +8,16 @@ These instructions will help you get the extension up and running on your local 
 
 ### Compatibility
 
-The Liquibase Hibernate extension requires Liquibase 4.x and Java 1.8+. Use `liquibase-hibernate5.jar` or `liquibase-hibernate6.jar` depending on your Hibernate version.
-Ideally the extension version should be the same one as Liquibase version.
+**Important:** The extension version must match your Hibernate major version. You cannot mix and match plugins across different Hibernate versions.
+
+| Hibernate | Liquibase Core | Java | Branch                     | Artifact ID | Support Status                |
+| :--- | :--- | :--- |:---------------------------| :--- |:------------------------------|
+| **7.x** | **4.x (OSS)** | **17+** | `liquibase-oss-hibernate7` | `liquibase-hibernate7-oss` | **Active (Stability)**        |
+| **7.x** | **5.x** | 17+ | `main`                     | `liquibase-hibernate7` | Active (Modern/Default Track) |
+| **6.x** | 4.x | 11+ | `hibernate6`               | `liquibase-hibernate6` | Legacy / Maintenance          |
 
 This extension can be used with any method of running Liquibase (Command line, Gradle, Maven, Ant, and others.)
+
 
 ### Liquibase CLI
 
@@ -19,10 +25,11 @@ Download [the latest released Liquibase extension](https://github.com/liquibase/
 
 ## Maven
 
-This extension is available in the maven repository under group __org.liquibase.ext__, artifacts:
+This extension is available in the maven repository under group __org.liquibase.ext__. To support the distinct requirements of Hibernate 7 across different Liquibase engines, use the appropriate artifact for your stack:
 
-* __liquibase-hibernate6__ Hibernate 6.0+ support
-* __liquibase-hibernate5__ Hibernate 5.0+ support
+* __liquibase-hibernate7__ Hibernate 7.x support (Targets **Liquibase 5.x**, Java 17+)
+* __liquibase-hibernate7-oss__ Hibernate 7.x support (Targets **Liquibase 4.x**, Java 17+)
+* __liquibase-hibernate6__ Hibernate 6.x support (Targets **Liquibase 4.x**, Java 11+)
 
 Specify the Liquibase extension in the `<dependency>` section of your POM file by adding the `org.liquibase.ext` dependency for the Liquibase plugin. 
  
@@ -57,13 +64,6 @@ To file a bug, improve documentation, or contribute code, follow our [guidelines
 [This step-by-step instructions](https://www.liquibase.org/community/contribute/code) will help you contribute code for the extension. 
 
 Once you have created a PR for this extension you can find the artifact for your build using the following link: [https://github.com/liquibase/liquibase-hibernate/actions/workflows/build.yml](https://github.com/liquibase/liquibase-hibernate/actions/workflows/build.yml).
-
-## Hibernate 5 vs. Hibernate 6
-
-The master branch is compatible with Hibernate 6+.
-The `hibernate5` branch is compatible with Hibernate 5.6+
-
-Ideally changes should go into the `hibernate5` branch and then be merged into master in order to support Hibernate 5 and 6.
 
 ## Documentation
 

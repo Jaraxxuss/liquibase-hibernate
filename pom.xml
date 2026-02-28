@@ -9,7 +9,7 @@
     </parent>
 
     <groupId>org.liquibase.ext</groupId>
-    <artifactId>liquibase-hibernate7</artifactId>
+    <artifactId>liquibase-oss-hibernate7</artifactId>
     <version>6.0.0-SNAPSHOT</version>
 
     <name>Liquibase Hibernate Integration</name>
@@ -75,6 +75,7 @@
         <spring.version>7.0.2</spring.version>
         <hibernate.models.version>1.0.1</hibernate.models.version>
         <liquibase.version>4.29.2</liquibase.version>
+        <lombok.version>1.18.42</lombok.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
     </properties>
@@ -165,6 +166,19 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-enforcer-plugin</artifactId>
